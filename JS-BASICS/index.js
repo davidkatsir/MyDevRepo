@@ -45,5 +45,6 @@ console.log(squareNumber);
 
 console.log(square(numberForSquareCalculation) + 1);
 
+let stam = 1;
 
 
