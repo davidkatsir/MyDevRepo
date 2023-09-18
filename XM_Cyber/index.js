@@ -13,9 +13,9 @@ function findEvenBrackets(stringWithBrackets) {
         return false;
 }
 
-let evenBracketsStrin01 = '( )';
-let notEvenBracketsStrin02 = '(abc()';
-let evenBracketsStrin03 = '(abc())';
+let evenBracketsStrin01 = '( )';         // Even Brackets
+let notEvenBracketsStrin02 = '(abc()';   // Not even Brackets
+let evenBracketsStrin03 = '(abc())';     // Even Brackets
 
 
 let checkIfStringHasEvenBrackets = findEvenBrackets(evenBracketsStrin01);
