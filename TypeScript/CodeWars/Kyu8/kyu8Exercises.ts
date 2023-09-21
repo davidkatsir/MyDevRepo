@@ -74,7 +74,7 @@ endOfFunction();
 
 // Question:
 // Return Negative
-// In this simple assignment you are given a number and have to make it negative. 
+// In this simple assignment you are given a number and have to make it negative.
 //    But maybe the number is already negative?
 // Examples
 // makeNegative(1);  // return -1
@@ -84,6 +84,73 @@ endOfFunction();
 // The number can be negative already, in which case no change is required.
 // Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
 
+export const makeNegative = (inputNumber: number): number => {
+  if (inputNumber > 0) {
+    inputNumber *= -1;
+    return inputNumber;
+  }
+  return inputNumber;
+};
+
+let input01 = 0;
+let input02 = -512310;
+let input03 = 987;
+
+console.log(makeNegative(input01)); // Output: 0
+console.log(makeNegative(input02)); // Output: -512310
+console.log(makeNegative(input03)); // Output: -987
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Question:
+// Reversed Strings
+// Complete the solution so that it reverses the string passed into it.
+// 'world'  =>  'dlrow'
+// 'word'   =>  'drow'
+
+export function solution(str: string): string {
+  // Create an empty string to store the reversed characters.
+  let reversedStr = "";
+  // Iterate through the input string in reverse order.
+  for (let i = str.length - 1; i >= 0; i--) {
+    // Concatenate each character to the reversedStr variable.
+    reversedStr += str[i];
+  }
+  // Return the reversed string.
+  return reversedStr;
+}
+
+const str01 = "Yom Yavo";
+const str02 = "Golan Ben Lulu";
+console.log(solution(str01)); // Output: 'ovaY moY'
+console.log(solution(str02)); // Output: 'uluL neB naloG'
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Question:
+// Convert boolean values to strings 'Yes' or 'No'.
+//   Complete the method that takes a boolean value
+//      and return a "Yes" string for true, or a "No" string for false.
+
+export const boolToWord = (bool: boolean): string => {
+  let boolValueToReturn: string;
+  switch (bool) {
+    case true:
+      boolValueToReturn = "Yes";
+      break;
+    case false:
+      boolValueToReturn = "No";
+      break;
+  }
+  return boolValueToReturn;
+};
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Question:
 
 
 
