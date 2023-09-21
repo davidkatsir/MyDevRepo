@@ -177,6 +177,11 @@ endOfFunction();
 // 14: -14
 // -34: 34
 
+export class Kata {
+  static opposite(n: number) {
+    return -n;
+  }
+}
 
 
 
