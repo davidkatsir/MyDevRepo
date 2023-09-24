@@ -184,6 +184,18 @@ export class Kata {
 }
 
 
+endOfFunction();
+//******************************************************************************************************** */
+
+// Question:
+// Remove First and Last Character
+// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. 
+//   You don't have to worry with strings with less than two characters.
+
+export const removeChar = (str: string): string => str.slice(1, -1);
+
+let str011 = 'Example String';
+console.log(removeChar(str011));  // Output: 'xample Strin'
 
 endOfFunction();
 //******************************************************************************************************** */
