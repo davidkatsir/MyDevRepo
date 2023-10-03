@@ -93,7 +93,7 @@ endOfFunction();
 // There will always be at least one number in the input string.
 // Output string must be two numbers separated by a single space, and highest number is first.
 
-export class Kata03 {
+export class Kata02 {
   static highAndLow(numbers: string): string {
     const splitInputStringToArray: string[] = numbers.split(" ");
     const convertSrtingToNumber: number[] = splitInputStringToArray
@@ -109,7 +109,7 @@ export class Kata03 {
 
 const highAndLow01 = "1 2 -3 4 5";
 
-console.log(Kata03.highAndLow(highAndLow01)); // Output: "5 -3"
+console.log(Kata02.highAndLow(highAndLow01)); // Output: "5 -3"
 
 endOfFunction();
 //******************************************************************************************************** */
@@ -121,7 +121,7 @@ endOfFunction();
 // For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
 // Note: for this kata y isn't considered a vowel.
 
-export class Kata04 {
+export class Kata03 {
   static disemvowel(str: string): string {
     
     
