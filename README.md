@@ -1,2 +1,0 @@
-# MyDevRepo
-My Dev Repo
