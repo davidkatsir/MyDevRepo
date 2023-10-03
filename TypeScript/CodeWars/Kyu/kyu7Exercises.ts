@@ -76,28 +76,74 @@ const num01 = 23;
 const num02 = 222;
 const num03 = 987;
 
-console.log(Kata01.squareDigits(num01));  // Output = 49
-console.log(Kata01.squareDigits(num02));  // Output = 444
-console.log(Kata01.squareDigits(num03));  // Output = 816449
+console.log(Kata01.squareDigits(num01)); // Output = 49
+console.log(Kata01.squareDigits(num02)); // Output = 444
+console.log(Kata01.squareDigits(num03)); // Output = 816449
+
+endOfFunction();
+//******************************************************************************************************** */
+// Highest and Lowest
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+// Examples
+// highAndLow("1 2 3 4 5");  // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 3 4 -5"); // return "9 -5"
+// Notes
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
+
+export class Kata03 {
+  static highAndLow(numbers: string): string {
+    const splitInputStringToArray: string[] = numbers.split(" ");
+    const convertSrtingToNumber: number[] = splitInputStringToArray
+      .map(Number)
+      .sort((a, b) => b - a);
+    const highestNumber = convertSrtingToNumber[0].toString();
+    const lowestNumber =
+      convertSrtingToNumber[convertSrtingToNumber.length - 1].toString();
+    const lowestAndHighest = highestNumber + " " + lowestNumber;
+    return lowestAndHighest;
+  }
+}
+
+const highAndLow01 = "1 2 -3 4 5";
+
+console.log(Kata03.highAndLow(highAndLow01)); // Output: "5 -3"
+
+endOfFunction();
+//******************************************************************************************************** */
+// Disemvowel Trolls
+// Trolls are attacking your comment section!
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, 
+// neutralizing the threat.
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+// Note: for this kata y isn't considered a vowel.
+
+export class Kata04 {
+  static disemvowel(str: string): string {
+    
+    
+    return str;
+  }
+}
+
+
+
 
 
 
 endOfFunction();
 //******************************************************************************************************** */
 
+
+
 function endOfFunction() {
   console.log(
-    "                                                                "
+    "************************ End of question ***********************"
   );
-  console.log(
-    "****************************************************************"
-  );
-  console.log(
-    "**********             End of question            **************"
-  );
-  console.log(
-    "****************************************************************"
-  );
+
   console.log(
     "                                                                "
   );
