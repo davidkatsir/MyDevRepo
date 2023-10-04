@@ -2,18 +2,20 @@
 // Get a number as input and order it in descending order
 // If the input would be: 52819, then the output should be: 98521
 
-function orderDigitsDesc(inputNumber: number) {
-  if (inputNumber < 0) {
-    inputNumber = inputNumber * -1;
-  }
+function orderDigitsDesc(inputNumber: number): string {
+  let absoluteNumber = Math.abs(inputNumber);
   const digitsArray: number[] = [];
-  while (inputNumber > 0) {
-    digitsArray.push(inputNumber % 10);
-    inputNumber = Math.floor(inputNumber / 10);
+  
+  while (absoluteNumber > 0) {
+    digitsArray.push(absoluteNumber % 10);
+    absoluteNumber = Math.floor(absoluteNumber / 10);
   }
+  
   digitsArray.sort((a, b) => b - a);
   return digitsArray.join("");
 }
+
+
 const inputNumber01 = -121589;
 const inputNumber02 = 851;
 const inputNumber03 = 322569;
