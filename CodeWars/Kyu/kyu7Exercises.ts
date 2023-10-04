@@ -5,16 +5,15 @@
 function orderDigitsDesc(inputNumber: number): string {
   let absoluteNumber = Math.abs(inputNumber);
   const digitsArray: number[] = [];
-  
+
   while (absoluteNumber > 0) {
     digitsArray.push(absoluteNumber % 10);
     absoluteNumber = Math.floor(absoluteNumber / 10);
   }
-  
+
   digitsArray.sort((a, b) => b - a);
   return digitsArray.join("");
 }
-
 
 const inputNumber01 = -121589;
 const inputNumber02 = 851;
@@ -154,16 +153,79 @@ console.log(Kata03.disemvowel(disemvowel01));
 endOfFunction();
 //******************************************************************************************************** */
 
+// Descending Order
+// Your task is to make a function that can take any non-negative integer as an argument
+// and return it with its digits in descending order.
+// Essentially, rearrange the digits to create the highest possible number.
+// Examples:
+// Input: 42145 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 123456789 Output: 987654321
 
+export function descendingOrder(n: number): number {
+  const nToStrArray: string[] = n.toString().split("");
+  const nStrArrayToNumArray = nToStrArray
+    .map(Number)
+    .sort((a, b) => b - a)
+    .join("");
 
+  return parseInt(nStrArrayToNumArray);
+}
 
-
+const descendingOrderInput01 = 123456789;
+console.log(descendingOrder(descendingOrderInput01));
 
 endOfFunction();
 //******************************************************************************************************** */
 
+// Get the Middle Character
+// You are going to be given a word. Your job is to return the middle character of the word.
+// If the word's length is odd, return the middle character.
+// If the word's length is even, return the middle 2 characters.
+// #Examples:
+// Kata.getMiddle("test") should return "es"
+// Kata.getMiddle("testing") should return "t"
+// Kata.getMiddle("middle") should return "dd"
+// Kata.getMiddle("A") should return "A"
+// #Input
+// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more
+// than 1000 in some test cases due to an error in the test cases). You do not need to test for this.
+// This is only here to tell you that you do not need to worry about your solution timing out.
+// #Output
+// The middle character(s) of the word represented as a string.
 
+export function getMiddle(s: string): string {
+  const inputStrSplit: string[] = s.split("");
+  const middleCharacters: string[] = [];
+  if (inputStrSplit.length % 2 === 0) {
+    middleCharacters.push(inputStrSplit[inputStrSplit.length / 2 - 1]);
+    middleCharacters.push(inputStrSplit[inputStrSplit.length / 2]);
+  } else {
+    const oddMiddleIndex = Math.floor(inputStrSplit.length / 2);
+    middleCharacters.push(inputStrSplit[oddMiddleIndex]);
+  }
+  return middleCharacters.join("");
+}
 
+const oddStringInput = "character";
+const evenStringInput = "characters";
+
+console.log(getMiddle(oddStringInput));  // Output: a
+console.log(getMiddle(evenStringInput)); // Output: ac
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Mumbling
+// This time no story, no theory. The examples below show you how to write function accum:
+// Examples:
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+endOfFunction();
+//******************************************************************************************************** */
 
 function endOfFunction() {
   console.log(
