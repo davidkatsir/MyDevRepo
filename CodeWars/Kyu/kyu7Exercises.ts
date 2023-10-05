@@ -231,24 +231,27 @@ export function accum(s: string): string {
     if (i === 0) {
       const upperCaseChar = sToArray[i].toUpperCase();
       accumArray.push(upperCaseChar + "-");
-    } else if (i < sToArray.length - 1) {
+    } 
+    else if (i < sToArray.length - 1) {
       let firstIsUppercase = sToArray[i].toUpperCase();
       let nextAreLowercase = sToArray[i].toLowerCase();
       let nextLowerCaseArray: string[] = [];
       for (let y = 0; y < i; y++) {
-        nextLowerCaseArray.push(`${nextAreLowercase}-`);
+        nextLowerCaseArray.push(nextAreLowercase);
       }
-      accumArray.push(firstIsUppercase + nextAreLowercase + "-");
-      accumArray.push(`${firstIsUppercase}${nextAreLowercase}-`);
+      let nextLowerCase = nextLowerCaseArray.join('');
+      accumArray.push(`${firstIsUppercase}${nextLowerCase}-`);
       nextLowerCaseArray = [];
-    } else if (i < sToArray.length) {
+    } 
+    else if (i < sToArray.length) {
       let lastIndexFirstIsUppercase = sToArray[i].toUpperCase();
       let lastIndexNextAreLowercase = sToArray[i].toLowerCase();
       let lastIndexNextLowerCaseArray: string[] = [];
       for (let y = 0; y < i; y++) {
         lastIndexNextLowerCaseArray.push(lastIndexNextAreLowercase);
       }
-      accumArray.push(`${lastIndexFirstIsUppercase}${lastIndexNextAreLowercase}`);
+      let lastNextLowerCase = lastIndexNextLowerCaseArray.join('');
+      accumArray.push(`${lastIndexFirstIsUppercase}${lastNextLowerCase}`);
       lastIndexNextLowerCaseArray = [];
     }
   }
