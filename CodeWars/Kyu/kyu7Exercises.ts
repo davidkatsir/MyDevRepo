@@ -210,12 +210,11 @@ export function getMiddle(s: string): string {
 const oddStringInput = "character";
 const evenStringInput = "characters";
 
-console.log(getMiddle(oddStringInput));  // Output: a
+console.log(getMiddle(oddStringInput)); // Output: a
 console.log(getMiddle(evenStringInput)); // Output: ac
 
 endOfFunction();
 //******************************************************************************************************** */
-
 // Mumbling
 // This time no story, no theory. The examples below show you how to write function accum:
 // Examples:
@@ -223,6 +222,43 @@ endOfFunction();
 // accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 // accum("cwAt") -> "C-Ww-Aaa-Tttt"
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+export function accum(s: string): string {
+  const accumArray: string[] = [];
+  const sToArray: string[] = s.split("");
+
+  for (let i = 0; i < sToArray.length; i++) {
+    if (i === 0) {
+      const upperCaseChar = sToArray[i].toUpperCase();
+      accumArray.push(upperCaseChar + "-");
+    } else if (i < sToArray.length - 1) {
+      let firstIsUppercase = sToArray[i].toUpperCase();
+      let nextAreLowercase = sToArray[i].toLowerCase();
+      let nextLowerCaseArray: string[] = [];
+      for (let y = 0; y < i; y++) {
+        nextLowerCaseArray.push(`${nextAreLowercase}-`);
+      }
+      accumArray.push(firstIsUppercase + nextAreLowercase + "-");
+      accumArray.push(`${firstIsUppercase}${nextAreLowercase}-`);
+      nextLowerCaseArray = [];
+    } else if (i < sToArray.length) {
+      let lastIndexFirstIsUppercase = sToArray[i].toUpperCase();
+      let lastIndexNextAreLowercase = sToArray[i].toLowerCase();
+      let lastIndexNextLowerCaseArray: string[] = [];
+      for (let y = 0; y < i; y++) {
+        lastIndexNextLowerCaseArray.push(lastIndexNextAreLowercase);
+      }
+      accumArray.push(`${lastIndexFirstIsUppercase}${lastIndexNextAreLowercase}`);
+      lastIndexNextLowerCaseArray = [];
+    }
+  }
+  return accumArray.join("");
+}
+
+const accumInput01 = "RqaEzty";
+const accumInput02 = "cwAt";
+console.log(accum(accumInput01));
+console.log(accum(accumInput02));
 
 endOfFunction();
 //******************************************************************************************************** */
