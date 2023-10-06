@@ -231,26 +231,24 @@ export function accum(s: string): string {
     if (i === 0) {
       const upperCaseChar = sToArray[i].toUpperCase();
       accumArray.push(upperCaseChar + "-");
-    } 
-    else if (i < sToArray.length - 1) {
+    } else if (i < sToArray.length - 1) {
       let firstIsUppercase = sToArray[i].toUpperCase();
       let nextAreLowercase = sToArray[i].toLowerCase();
       let nextLowerCaseArray: string[] = [];
       for (let y = 0; y < i; y++) {
         nextLowerCaseArray.push(nextAreLowercase);
       }
-      let nextLowerCase = nextLowerCaseArray.join('');
+      let nextLowerCase = nextLowerCaseArray.join("");
       accumArray.push(`${firstIsUppercase}${nextLowerCase}-`);
       nextLowerCaseArray = [];
-    } 
-    else if (i < sToArray.length) {
+    } else if (i < sToArray.length) {
       let lastIndexFirstIsUppercase = sToArray[i].toUpperCase();
       let lastIndexNextAreLowercase = sToArray[i].toLowerCase();
       let lastIndexNextLowerCaseArray: string[] = [];
       for (let y = 0; y < i; y++) {
         lastIndexNextLowerCaseArray.push(lastIndexNextAreLowercase);
       }
-      let lastNextLowerCase = lastIndexNextLowerCaseArray.join('');
+      let lastNextLowerCase = lastIndexNextLowerCaseArray.join("");
       accumArray.push(`${lastIndexFirstIsUppercase}${lastNextLowerCase}`);
       lastIndexNextLowerCaseArray = [];
     }
@@ -260,8 +258,31 @@ export function accum(s: string): string {
 
 const accumInput01 = "RqaEzty";
 const accumInput02 = "cwAt";
-console.log(accum(accumInput01));  // Output:'R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy'
-console.log(accum(accumInput02));  // Output:'C-Ww-Aaa-Tttt'
+console.log(accum(accumInput01)); // Output:'R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy'
+console.log(accum(accumInput02)); // Output:'C-Ww-Aaa-Tttt'
+
+endOfFunction();
+//******************************************************************************************************** */
+// You're a square!
+// Given an integral number, determine if it's a square number:
+// In mathematics, a square number or perfect square is an integer that is the square of an integer;
+// in other words, it is the product of some integer with itself.
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+// Examples
+// -1  =>  false
+//  0  =>  true
+//  3  =>  false
+//  4  =>  true
+// 25  =>  true
+// 26  =>  false
+export default function isSquare(n: number): boolean {
+  let isNSquare = Math.sqrt(n) === Math.floor(Math.sqrt(n)) ? true : false;
+  return isNSquare;
+}
+
+endOfFunction();
+//******************************************************************************************************** */
+
 
 endOfFunction();
 //******************************************************************************************************** */
