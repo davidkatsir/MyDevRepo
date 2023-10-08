@@ -307,6 +307,39 @@ export function isIsogram(str: string): boolean {
 
 endOfFunction();
 //******************************************************************************************************** */
+// Exes and Ohs
+// Check to see if a string has the same amount of 'x's and 'o's.
+// The method must return a boolean and be case insensitive. The string can contain any char.
+// Examples input/output:
+// XO("ooxx") => true
+// XO("xooxx") => false
+// XO("ooxXm") => true
+// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+// XO("zzoo") => false
+export function xo(str: string): boolean {
+  const xoToLowerCase = str.toLowerCase();
+  const xoStrToArray: string[] = xoToLowerCase.split("");
+  let xCountInTheArray: number = 0;
+  let oCountInTheArray: number = 0;
+  for (let i = 0; i < xoStrToArray.length; i++) {
+    if (xoStrToArray[i] === "x") {
+      xCountInTheArray++;
+    }
+    if (xoStrToArray[i] === "o") {
+      oCountInTheArray++;
+    }
+  }
+  if (xCountInTheArray === 0 && oCountInTheArray === 0) {
+    return true;
+  } else if (xCountInTheArray / oCountInTheArray === 1) {
+    return true;
+  }
+  return false;
+}
+
+endOfFunction();
+//******************************************************************************************************** */
+
 
 
 endOfFunction();
