@@ -346,29 +346,39 @@ endOfFunction();
 // Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
 // Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
+// String.prototype.toJadenCase = function () {
+//   // Split the string into words
+//   const words = this.split(' ');
 
-String.prototype.toJadenCase = function () {
-  // Split the string into words
-  const words = this.split(' ');
+//   // Capitalize the first letter of each word
+//   for (let i = 0; i < words.length; i++) {
+//     words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+//   }
 
-  // Capitalize the first letter of each word
-  for (let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-  }
+//   // Join the words back together with spaces
+//   return words.join(' ');
+// };
 
-  // Join the words back together with spaces
-  return words.join(' ');
-};
+// // Extend the String interface to declare the new method
+// interface String {
+//   toJadenCase(): string;
+// }
 
-// Extend the String interface to declare the new method
-interface String {
-  toJadenCase(): string;
+// // Now you can use the toJadenCase method on any string
+// const exampleString = "this is a test";
+// console.log(exampleString.toJadenCase()); // Outputs: "This Is A Test"
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Shortest Word
+// Simple, given a string of words, return the length of the shortest word(s).
+// String will never be empty and you do not need to account for different data types.
+
+export function findShort(s: string): number {
+  return 0; // your code here
+
 }
-
-// Now you can use the toJadenCase method on any string
-const exampleString = "this is a test";
-console.log(exampleString.toJadenCase()); // Outputs: "This Is A Test"
-
 
 
 
