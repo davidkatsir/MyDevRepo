@@ -376,26 +376,16 @@ endOfFunction();
 // String will never be empty and you do not need to account for different data types.
 
 export function findShort(s: string): number {
-  return 0; // your code here
-
+  const sToArray: string[] = s.split(" ");
+  let shortestWord: number = sToArray[0].length;
+  for (let i = 1; i < sToArray.length; i++) {
+    shortestWord = sToArray[i].length < shortestWord ? sToArray[i].length : shortestWord;
+  }
+  return shortestWord;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+endOfFunction();
+//******************************************************************************************************** */
 
 
 
@@ -407,6 +397,7 @@ export function findShort(s: string): number {
 
 endOfFunction();
 //******************************************************************************************************** */
+
 
 function endOfFunction() {
   console.log(
