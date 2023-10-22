@@ -1,3 +1,13 @@
+function endOfFunction() {
+  console.log(
+    "************************ End of question ***********************"
+  );
+
+  console.log(
+    "                                                                "
+  );
+}
+
 // Question:
 // Get a number as input and order it in descending order
 // If the input would be: 52819, then the output should be: 98521
@@ -379,32 +389,113 @@ export function findShort(s: string): number {
   const sToArray: string[] = s.split(" ");
   let shortestWord: number = sToArray[0].length;
   for (let i = 1; i < sToArray.length; i++) {
-    shortestWord = sToArray[i].length < shortestWord ? sToArray[i].length : shortestWord;
+    shortestWord =
+      sToArray[i].length < shortestWord ? sToArray[i].length : shortestWord;
   }
   return shortestWord;
 }
 
 endOfFunction();
 //******************************************************************************************************** */
+// Complementary DNA
+// Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries
+// the "instructions" for the development and functioning of living organisms.
+// In DNA strings, symbols "A" and "T" are complements of each
+// other, as "C" and "G". Your function receives one side of the DNA (string, except for Haskell);
+// you need to return the other complementary side. DNA strand is never empty or
+// there is no DNA at all (again, except for Haskell).
+// More similar exercise are found here: http://rosalind.info/problems/list-view/ (source)
+// Example: (input --> output)
+// "ATTGC" --> "TAACG"
+// "GTAT" --> "CATA"
 
+export class KataComplementaryDNA {
+  static dnaStrand(dna: string) {
+    dna.toUpperCase();
+    const dnaToArray: string[] = dna.split("");
+    const complementaryDNA: string[] = [];
+    for (let i = 0; i < dnaToArray.length; i++) {
+      switch (dnaToArray[i]) {
+        case "A":
+          complementaryDNA.push("T");
+          break;
+        case "T":
+          complementaryDNA.push("A");
+          break;
+        case "C":
+          complementaryDNA.push("G");
+          break;
+        case "G":
+          complementaryDNA.push("C");
+          break;
+      }
+    }
+    return complementaryDNA.join("");
+  }
+}
 
+const ComplementaryDNA01 = "ATTGC"; // Expected output: 'TAACG'
+const ComplementaryDNA02 = "TAACG"; // Expected output: 'ATTGC'
+const ComplementaryDNA03 = "GTAT"; // Expected output: 'CATA'
+const ComplementaryDNA04 = "CATA"; // Expected output: 'GTAT'
 
+console.log(KataComplementaryDNA.dnaStrand(ComplementaryDNA01));
+console.log(KataComplementaryDNA.dnaStrand(ComplementaryDNA02));
+console.log(KataComplementaryDNA.dnaStrand(ComplementaryDNA03));
+console.log(KataComplementaryDNA.dnaStrand(ComplementaryDNA04));
 
+endOfFunction();
+//******************************************************************************************************** */
+// Credit Card Mask
+// Usually when you buy something, you're asked whether your credit card number,
+// phone number or answer to your most secret question is still correct.
+// However, since someone could look over your shoulder, you don't want that shown on your screen.
+// Instead, we mask it.
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+// Examples (input --> output):
+// "4556364607935616" --> "############5616"
+//      "64607935616" -->      "#######5616"
+//                "1" -->                "1"
+//                 "" -->                 ""
+// // "What was the name of your first pet?"
+// "Skippy" --> "##ippy"
+// "Nananananananananananananananana Batman!" --> "####################################man!"
 
+export function maskify(cc: string): string {
+  const ccToArray: string[] = cc.split("");
+  const maskedString: String[] = [];
+  if (ccToArray.length > 4) {
+    for (let i = 0; i < ccToArray.length - 4; i++) {
+      maskedString.push("#");
+    }
+    for (let i = ccToArray.length - 4; i < ccToArray.length; i++) {
+      maskedString.push(ccToArray[i]);
+    }
+    return maskedString.join("");
+  } else {
+    return cc;
+  }
+}
 
+endOfFunction();
+//******************************************************************************************************** */
+// Beginner Series #3 Sum of Numbers
+// Given two integers a and b, which can be positive or negative, find the sum of 
+// all the integers between and including them and return it. If the two numbers are equal return a or b.
+// Note: a and b are not ordered!
+// Examples (a, b) --> output (explanation)
+// (1, 0) --> 1 (1 + 0 = 1)
+// (1, 2) --> 3 (1 + 2 = 3)
+// (0, 1) --> 1 (0 + 1 = 1)
+// (1, 1) --> 1 (1 since both are same)
+// (-1, 0) --> -1 (-1 + 0 = -1)
+// (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+// Your function should only return a number, not the explanation about how you get that number.
 
+export function getSum(a: number, b: number): number {
+ 
+}
 
 
 endOfFunction();
 //******************************************************************************************************** */
-
-
-function endOfFunction() {
-  console.log(
-    "************************ End of question ***********************"
-  );
-
-  console.log(
-    "                                                                "
-  );
-}
