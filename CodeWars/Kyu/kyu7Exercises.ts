@@ -524,22 +524,22 @@ export const longest = (s1: string, s2: string): string => {
   const s2ToArray: string[] = s2.split("");
   const s1s2Joined: string[] = s1ToArray.concat(s2ToArray).sort();
   const uniqueLongest: string[] = [...new Set(s1s2Joined)];
-  const finalLongest: string = uniqueLongest.join('');
+  const finalLongest: string = uniqueLongest.join("");
   return finalLongest;
 };
 
 endOfFunction();
 //******************************************************************************************************** */
 // Printer Errors
-// In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use 
+// In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use
 // colors which, for the sake of simplicity, are named with letters from a to m.
-// The colors used by the printer are recorded in a control string. 
-// For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used 
+// The colors used by the printer are recorded in a control string.
+// For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used
 // three times color a, four times color b, one time color h then one time color a...
-// Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string 
+// Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string
 // is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
-// You have to write a function printer_error which given a string will return the 
-// error rate of the printer as a string representing a rational whose numerator is the number of 
+// You have to write a function printer_error which given a string will return the
+// error rate of the printer as a string representing a rational whose numerator is the number of
 // errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
 // The string has a length greater or equal to one and contains only letters from ato z.
 // Examples:
@@ -550,14 +550,49 @@ endOfFunction();
 // printer_error(s) => "8/22"
 
 export function printerError(s: string): string {
-  // your code
-  return ''
+  const sToLowerCase: string = s.toLowerCase();
+  const sToArray: string[] = sToLowerCase.split("");
+  let sArrayLength = sToArray.length;
+  let numOfErrors = 0;
+  for (let i = 0; i < sToArray.length; i++) {
+    if (
+      sToArray[i] === "n" ||
+      sToArray[i] === "o" ||
+      sToArray[i] === "p" ||
+      sToArray[i] === "q" ||
+      sToArray[i] === "r" ||
+      sToArray[i] === "s" ||
+      sToArray[i] === "t" ||
+      sToArray[i] === "u" ||
+      sToArray[i] === "v" ||
+      sToArray[i] === "w" ||
+      sToArray[i] === "x" ||
+      sToArray[i] === "y" ||
+      sToArray[i] === "z"
+    )
+      numOfErrors += 1;
+  }
+  let printerErrorStr: string = `${numOfErrors}/${sArrayLength}`;
+  return printerErrorStr;
 }
 
+endOfFunction();
+//******************************************************************************************************** */
 
+// Regex validate PIN code
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits
+// or exactly 6 digits.
+// If the function is passed a valid PIN string, return true, else return false.
+// Examples (Input --> Output)
+// "1234"   -->  true
+// "12345"  -->  false
+// "a234"   -->  false
 
-
-
+export class KataPinCode {
+  static validatePin(pin: string): boolean {
+    throw new Error("The method or operation is not implemented.");
+  }
+}
 
 endOfFunction();
 //******************************************************************************************************** */
