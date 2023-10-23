@@ -480,7 +480,7 @@ export function maskify(cc: string): string {
 endOfFunction();
 //******************************************************************************************************** */
 // Beginner Series #3 Sum of Numbers
-// Given two integers a and b, which can be positive or negative, find the sum of 
+// Given two integers a and b, which can be positive or negative, find the sum of
 // all the integers between and including them and return it. If the two numbers are equal return a or b.
 // Note: a and b are not ordered!
 // Examples (a, b) --> output (explanation)
@@ -493,8 +493,70 @@ endOfFunction();
 // Your function should only return a number, not the explanation about how you get that number.
 
 export function getSum(a: number, b: number): number {
- 
+  let sum = 0;
+  if (a === b) {
+    return a;
+  } else if (a != b) {
+    let lowerValue = a < b ? a : b;
+    let higherValue = a < b ? b : a;
+    for (let i = lowerValue; i <= higherValue; i++) {
+      sum += i;
+    }
+  }
+  return sum;
 }
+
+endOfFunction();
+//******************************************************************************************************** */
+// Two to One
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string,
+// the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+// Examples:
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+export const longest = (s1: string, s2: string): string => {
+  const s1ToArray: string[] = s1.split("");
+  const s2ToArray: string[] = s2.split("");
+  const s1s2Joined: string[] = s1ToArray.concat(s2ToArray).sort();
+  const uniqueLongest: string[] = [...new Set(s1s2Joined)];
+  const finalLongest: string = uniqueLongest.join('');
+  return finalLongest;
+};
+
+endOfFunction();
+//******************************************************************************************************** */
+// Printer Errors
+// In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use 
+// colors which, for the sake of simplicity, are named with letters from a to m.
+// The colors used by the printer are recorded in a control string. 
+// For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used 
+// three times color a, four times color b, one time color h then one time color a...
+// Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string 
+// is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+// You have to write a function printer_error which given a string will return the 
+// error rate of the printer as a string representing a rational whose numerator is the number of 
+// errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+// The string has a length greater or equal to one and contains only letters from ato z.
+// Examples:
+// s="aaabbbbhaijjjm"
+// printer_error(s) => "0/14"
+
+// s="aaaxbbbbyyhwawiwjjjwwm"
+// printer_error(s) => "8/22"
+
+export function printerError(s: string): string {
+  // your code
+  return ''
+}
+
+
+
+
 
 
 endOfFunction();
