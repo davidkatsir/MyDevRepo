@@ -590,7 +590,11 @@ endOfFunction();
 
 export class KataPinCode {
   static validatePin(pin: string): boolean {
-    throw new Error("The method or operation is not implemented.");
+    if (pin.match(/^\d{4}$|^\d{6}$/)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
