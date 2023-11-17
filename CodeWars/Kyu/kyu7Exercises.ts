@@ -664,5 +664,26 @@ endOfFunction();
 // solution('abc', 'bc') // returns true
 // solution('abc', 'd') // returns false
 
+export function solution(str: string, ending: string): boolean {
+  let firstEndsWithSecond: boolean;
+  // If ending is an empty string, it always matches
+  if (ending === "") {
+    return true;
+  }
+  const firstStr: string[] = str.split("").reverse();
+  const secondStr: string[] = ending.split("").reverse();
+  let i = 0;
+  while (i < secondStr.length) {
+    if (firstStr[i] !== secondStr[i]) {
+      firstEndsWithSecond = false;
+      break;
+    }
+    i++;
+  }
+  // If we reached here, it means all characters matched
+  firstEndsWithSecond = true;
+  return firstEndsWithSecond;
+}
+
 endOfFunction();
 //******************************************************************************************************** */
