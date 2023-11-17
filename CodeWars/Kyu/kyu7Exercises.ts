@@ -665,25 +665,54 @@ endOfFunction();
 // solution('abc', 'd') // returns false
 
 export function solution(str: string, ending: string): boolean {
-  let firstEndsWithSecond: boolean;
-  // If ending is an empty string, it always matches
   if (ending === "") {
     return true;
-  }
-  const firstStr: string[] = str.split("").reverse();
-  const secondStr: string[] = ending.split("").reverse();
-  let i = 0;
-  while (i < secondStr.length) {
-    if (firstStr[i] !== secondStr[i]) {
-      firstEndsWithSecond = false;
-      break;
+  } else {
+    const firstStr: string[] = str.split("").reverse();
+    const secondStr: string[] = ending.split("").reverse();
+    let i = 0;
+    while (i < secondStr.length) {
+      if (firstStr[i] !== secondStr[i]) {
+        return false;
+      }
+      i++;
     }
+    return true;
+  }
+}
+
+endOfFunction();
+//******************************************************************************************************** */
+
+// Sum of odd numbers
+// Given the triangle of consecutive odd numbers:
+//              1
+//           3     5
+//        7     9    11
+//    13    15    17    19
+// 21    23    25    27    29
+// ...
+// Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+// 1 -->  1
+// 2 --> 3 + 5 = 8
+
+export function rowSumOddNumbers(n: number): number {
+  let firstNumberRowN = n ** 2 - (n - 1);
+  let i = 1;
+  let rowSum = firstNumberRowN;
+  while (i < n) {
+    rowSum = rowSum + 2;
     i++;
   }
-  // If we reached here, it means all characters matched
-  firstEndsWithSecond = true;
-  return firstEndsWithSecond;
+  return rowSum;
 }
+// Thoughts:
+// If n = 10 the this row has also 10 members, n = 95 => the row has 95 members...
+// The first number of each row will be:
+// let firstNumberRowN = n ** 2 - (n - 1);
+// Nₙ₁ = n² - (n - 1)
+// and then each number is plus 2 until the end of the row
+// I need to put all those numbers into an array and in the end Sum all members and this is the result
 
 endOfFunction();
 //******************************************************************************************************** */
