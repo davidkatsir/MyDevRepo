@@ -696,23 +696,58 @@ endOfFunction();
 // 1 -->  1
 // 2 --> 3 + 5 = 8
 
+// Thoughts:
+// If n = 10 then this row has also 10 members, n = 95 => the row has 95 members...
+// The first number of each row will be => Nₙ₁ = n² - (n - 1)
+// nRowfirstMemberValue = n ** 2 - (n - 1);
+// and then each number is plus 2 until the end of the row
+
 export function rowSumOddNumbers(n: number): number {
-  let firstNumberRowN = n ** 2 - (n - 1);
+  const nRowMembersArray: number[] = [];
+  let nRowfirstMemberValue = n ** 2 - (n - 1);
+  nRowMembersArray.push(nRowfirstMemberValue);
   let i = 1;
-  let rowSum = firstNumberRowN;
   while (i < n) {
-    rowSum = rowSum + 2;
+    nRowMembersArray.push(nRowMembersArray[i - 1] + 2);
     i++;
   }
-  return rowSum;
+  return nRowMembersArray.reduce((acc, currentValue) => acc + currentValue, 0);
 }
-// Thoughts:
-// If n = 10 the this row has also 10 members, n = 95 => the row has 95 members...
-// The first number of each row will be:
-// let firstNumberRowN = n ** 2 - (n - 1);
-// Nₙ₁ = n² - (n - 1)
-// and then each number is plus 2 until the end of the row
-// I need to put all those numbers into an array and in the end Sum all members and this is the result
+
+endOfFunction();
+//******************************************************************************************************** */
+// Ones and Zeros
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+// Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+// Examples:
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
+// However, the arrays can have varying lengths, not just limited to 4.
+
+export function binaryArrayToNumber(arr: number[]): number {
+  const binaryString = arr.join("");
+  const decimalNumber = parseInt(binaryString, 2);
+  return decimalNumber;
+}
+
+endOfFunction();
+//******************************************************************************************************** */
+// Number of People in the Bus
+// There is a bus moving in the city which takes and drops some people at each bus stop.
+// You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+// Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, they are probably sleeping there :D
+// Take a look on the test cases.
+// Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the returned integer can't be negative.
+// The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.
+export function number(busStops: [number, number][]): number {
+  // Your Code
+}
 
 endOfFunction();
 //******************************************************************************************************** */
