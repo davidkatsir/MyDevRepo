@@ -183,19 +183,80 @@ export class Kata {
   }
 }
 
-
 endOfFunction();
 //******************************************************************************************************** */
 
 // Question:
 // Remove First and Last Character
-// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. 
+// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string.
+//  You're given one parameter, the original string.
 //   You don't have to worry with strings with less than two characters.
 
 export const removeChar = (str: string): string => str.slice(1, -1);
 
-let str011 = 'Example String';
-console.log(removeChar(str011));  // Output: 'xample Strin'
+let str011 = "Example String";
+console.log(removeChar(str011)); // Output: 'xample Strin'
+
+endOfFunction();
+//******************************************************************************************************** */
+// String repeat
+// Write a function that accepts an
+// integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+// Examples (input -> output)
+// 6, "I"     -> "IIIIII"
+// 5, "Hello" -> "HelloHelloHelloHelloHello"
+
+export function repeatStr(n: number, s: string): string {
+  const repeatStrArray: String[] = [];
+  for (let i = 0; i < n; i++) {
+    repeatStrArray.push(s);
+  }
+  return repeatStrArray.join("");
+}
+
+let n = 19;
+let s = "Hayom Yom Sheni";
+console.log(repeatStr(n, s));
+// Output:
+// 'Hayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom Sheni
+// Hayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom Sheni
+// Hayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom SheniHayom Yom Sheni'
+
+endOfFunction();
+//******************************************************************************************************** */
+// Remove String Spaces
+// Write a function that removes the spaces from the string, then return the resultant string.
+// Examples:
+// Input -> Output
+// "8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+// "8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+// "8aaaaa dddd r     " -> "8aaaaaddddr"
+
+export function noSpace(x: string): string {
+  const noSpaceStrToArray: string[] = x.split("");
+  const resultStr: string[] = [];
+  for (let i = 0; i <= noSpaceStrToArray.length; i++) {
+    if (noSpaceStrToArray[i] !== " ") {
+      resultStr.push(noSpaceStrToArray[i]);
+    }
+  }
+  return resultStr.join("");
+}
+
+endOfFunction();
+//******************************************************************************************************** */
+// Square(n) Sum
+// Complete the square sum function so that it squares each number passed into it and then sums the results together.
+// For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
+
+export function squareSum(numbers: number[]): number {
+  const squaredNumbers: number[] = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let iMemberSquared = numbers[i] ** 2;
+    squaredNumbers.push(iMemberSquared);
+  }
+  return squaredNumbers.reduce((a, b) => a + b, 0);
+}
 
 endOfFunction();
 //******************************************************************************************************** */
